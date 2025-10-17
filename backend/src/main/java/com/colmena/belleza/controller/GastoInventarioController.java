@@ -26,9 +26,9 @@ public class GastoInventarioController {
     @PostMapping("/gastos")
     public Gasto gastosCreate(@RequestBody Gasto g) { return gastoRepository.save(g); }
     @PutMapping("/gastos/{id}")
-    public Gasto gastosUpdate(@PathVariable Long id, @RequestBody Gasto g) { g.setId(id); return gastoRepository.save(g); }
+    public Gasto gastosUpdate(@PathVariable Integer id, @RequestBody Gasto g) { g.setId(id); return gastoRepository.save(g); }
     @DeleteMapping("/gastos/{id}")
-    public void gastosDelete(@PathVariable Long id) { gastoRepository.deleteById(id); }
+    public void gastosDelete(@PathVariable Integer id) { gastoRepository.deleteById(id); }
 
     // Inventario movimientos
     @GetMapping("/inventario_movimientos")
@@ -36,7 +36,7 @@ public class GastoInventarioController {
     @PostMapping("/inventario_movimientos")
     public InventarioMovimiento invCreate(@RequestBody InventarioMovimiento m) { return inventarioMovimientoRepository.save(m); }
     @PutMapping("/inventario_movimientos/{id}")
-    public InventarioMovimiento invUpdate(@PathVariable Long id, @RequestBody InventarioMovimiento m) { m.setId(id); return inventarioMovimientoRepository.save(m); }
+    public InventarioMovimiento invUpdate(@PathVariable Integer id, @RequestBody InventarioMovimiento m) { m.setId(id); return inventarioMovimientoRepository.save(m); }
     @DeleteMapping("/inventario_movimientos/{id}")
-    public void invDelete(@PathVariable Long id) { inventarioMovimientoRepository.deleteById(id); }
+    public void invDelete(@PathVariable Integer id) { inventarioMovimientoRepository.deleteById(id); }
 }

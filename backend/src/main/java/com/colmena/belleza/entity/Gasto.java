@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 public class Gasto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(columnDefinition = "timestamp with time zone")
     private OffsetDateTime fecha = OffsetDateTime.now();
@@ -23,8 +23,8 @@ public class Gasto {
     @Column(length = 100)
     private String categoria;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
     public OffsetDateTime getFecha() { return fecha; }
     public void setFecha(OffsetDateTime fecha) { this.fecha = fecha; }
     public String getDescripcion() { return descripcion; }

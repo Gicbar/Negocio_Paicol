@@ -9,7 +9,7 @@ import java.time.OffsetDateTime;
 public class Venta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(columnDefinition = "timestamp with time zone")
     private OffsetDateTime fecha = OffsetDateTime.now();
@@ -24,8 +24,8 @@ public class Venta {
     @Column(name = "metodo_pago", length = 50)
     private String metodoPago;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
     public OffsetDateTime getFecha() { return fecha; }
     public void setFecha(OffsetDateTime fecha) { this.fecha = fecha; }
     public Cliente getCliente() { return cliente; }

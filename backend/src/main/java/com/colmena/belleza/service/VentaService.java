@@ -36,7 +36,7 @@ public class VentaService {
     public Venta procesarVenta(VentaRequest request) {
         Venta venta = new Venta();
         if (request.idCliente != null && request.idCliente >= 0) {
-            Cliente cliente = clienteRepository.findById(request.idCliente)
+            Cliente cliente = clienteRepository.findById(request.idCliente.intValue())
                     .orElseThrow(() -> new NotFoundException("Cliente no encontrado"));
             venta.setCliente(cliente);
         } else {
@@ -48,7 +48,7 @@ public class VentaService {
 
         BigDecimal total = BigDecimal.ZERO;
         for (VentaRequest.Item item : request.items) {
-            Producto producto = productoRepository.findById(item.idProducto)
+            Producto producto = productoRepository.findById(item.idProducto.intValue())
                     .orElseThrow(() -> new NotFoundException("Producto no encontrado"));
             if (producto.getStock() < item.cantidad) {
                 throw new IllegalArgumentException("Stock insuficiente para " + producto.getNombre());

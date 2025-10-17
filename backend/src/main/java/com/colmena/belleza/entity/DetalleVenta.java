@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 public class DetalleVenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_venta")
@@ -24,8 +24,8 @@ public class DetalleVenta {
     @Column(name = "precio_unitario", precision = 10, scale = 2, nullable = false)
     private BigDecimal precioUnitario;
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Integer getId() { return id; }
+    public void setId(Integer id) { this.id = id; }
     public Venta getVenta() { return venta; }
     public void setVenta(Venta venta) { this.venta = venta; }
     public Producto getProducto() { return producto; }

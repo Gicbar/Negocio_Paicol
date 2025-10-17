@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import Swal from 'sweetalert2'
 import { api } from '../api'
 
 const barcode = ref('')
@@ -16,7 +17,7 @@ async function addByBarcode() {
     else cart.value.push({ producto: p, cantidad: 1 })
     barcode.value = ''
   } catch (e) {
-    alert('Producto no encontrado')
+    Swal.fire('Producto no encontrado', 'Verifica el código de barras', 'error')
   }
 }
 
@@ -34,7 +35,7 @@ async function procesarVenta() {
     items: cart.value.map(i => ({ idProducto: i.producto.id, cantidad: i.cantidad })),
   }
   const { data } = await api.post('/ventas', payload)
-  alert(`Venta #${data.id} registrada. Total: $${data.total}`)
+  await Swal.fire('Venta registrada', `Venta #${data.id} - Total: $${data.total}`, 'success')
   cart.value = []
 }
 </script>

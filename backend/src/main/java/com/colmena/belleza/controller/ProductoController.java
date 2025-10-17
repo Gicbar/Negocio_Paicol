@@ -20,16 +20,16 @@ public class ProductoController {
     public List<Producto> list() { return productoService.list(); }
 
     @GetMapping("/{id}")
-    public Producto get(@PathVariable Long id) { return productoService.get(id); }
+    public Producto get(@PathVariable Integer id) { return productoService.get(id); }
 
     @PostMapping
     public Producto create(@RequestBody ProductoDTO dto) { return productoService.create(dto); }
 
     @PutMapping("/{id}")
-    public Producto update(@PathVariable Long id, @RequestBody ProductoDTO dto) { return productoService.update(id, dto); }
+    public Producto update(@PathVariable Integer id, @RequestBody ProductoDTO dto) { return productoService.update(id, dto); }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) { productoService.delete(id); }
+    public void delete(@PathVariable Integer id) { productoService.delete(id); }
 
     @GetMapping("/barcode/{codigo}")
     public Producto byBarcode(@PathVariable String codigo) { return productoService.findByCodigoBarras(codigo); }

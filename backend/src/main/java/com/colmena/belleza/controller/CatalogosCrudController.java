@@ -32,11 +32,11 @@ public class CatalogosCrudController {
     @PostMapping("/categorias")
     public Categoria catCreate(@RequestBody Categoria c) { return categoriaRepository.save(c); }
     @PutMapping("/categorias/{id}")
-    public Categoria catUpdate(@PathVariable Long id, @RequestBody Categoria c) {
+    public Categoria catUpdate(@PathVariable Integer id, @RequestBody Categoria c) {
         c.setId(id); return categoriaRepository.save(c);
     }
     @DeleteMapping("/categorias/{id}")
-    public void catDelete(@PathVariable Long id) { categoriaRepository.deleteById(id); }
+    public void catDelete(@PathVariable Integer id) { categoriaRepository.deleteById(id); }
 
     // Proveedores
     @GetMapping("/proveedores")
@@ -44,11 +44,11 @@ public class CatalogosCrudController {
     @PostMapping("/proveedores")
     public Proveedor provCreate(@RequestBody Proveedor p) { return proveedorRepository.save(p); }
     @PutMapping("/proveedores/{id}")
-    public Proveedor provUpdate(@PathVariable Long id, @RequestBody Proveedor p) {
+    public Proveedor provUpdate(@PathVariable Integer id, @RequestBody Proveedor p) {
         p.setId(id); return proveedorRepository.save(p);
     }
     @DeleteMapping("/proveedores/{id}")
-    public void provDelete(@PathVariable Long id) { proveedorRepository.deleteById(id); }
+    public void provDelete(@PathVariable Integer id) { proveedorRepository.deleteById(id); }
 
     // Clientes
     @GetMapping("/clientes")
@@ -56,9 +56,9 @@ public class CatalogosCrudController {
     @PostMapping("/clientes")
     public Cliente cliCreate(@RequestBody Cliente c) { return clienteRepository.save(c); }
     @PutMapping("/clientes/{id}")
-    public Cliente cliUpdate(@PathVariable Long id, @RequestBody Cliente c) {
+    public Cliente cliUpdate(@PathVariable Integer id, @RequestBody Cliente c) {
         c.setId(id); return clienteRepository.save(c);
     }
     @DeleteMapping("/clientes/{id}")
-    public void cliDelete(@PathVariable Long id) { clienteRepository.deleteById(id); }
+    public void cliDelete(@PathVariable Integer id) { clienteRepository.deleteById(id); }
 }

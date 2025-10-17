@@ -29,20 +29,20 @@ public class ProductoService {
 
     public List<Producto> list() { return productoRepository.findAll(); }
 
-    public Producto get(Long id) { return productoRepository.findById(id)
+    public Producto get(Integer id) { return productoRepository.findById(id)
             .orElseThrow(() -> new NotFoundException("Producto no encontrado")); }
 
     @Transactional
     public Producto create(ProductoDTO dto) { return saveFromDto(new Producto(), dto); }
 
     @Transactional
-    public Producto update(Long id, ProductoDTO dto) {
+    public Producto update(Integer id, ProductoDTO dto) {
         Producto existing = get(id);
         return saveFromDto(existing, dto);
     }
 
     @Transactional
-    public void delete(Long id) { productoRepository.deleteById(id); }
+    public void delete(Integer id) { productoRepository.deleteById(id); }
 
     public Producto findByCodigoBarras(String codigo) {
         return productoRepository.findByCodigoBarras(codigo)
