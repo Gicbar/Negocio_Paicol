@@ -1,0 +1,7 @@
+@import './assets/brand.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #app { height: 100%; }
+body { background: var(--soft); color: #111827; }
